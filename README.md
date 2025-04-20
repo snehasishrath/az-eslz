@@ -1,3 +1,43 @@
+## Getting Started
+
+This project provides a Terraform-based implementation of an Azure enterprise-grade landing zone aligned with the Microsoft Cloud Adoption Framework (CAF). Follow the steps below to set up the project:
+
+1. **Install Prerequisites**:
+   - Terraform 1.x
+   - Azure CLI
+   - (Optional) GitHub CLI or Azure DevOps CLI for CI/CD integration
+
+2. **Clone the Repository**:
+   ```bash
+   git clone <repository-url>
+   cd az-eslz
+   ```
+
+3. **Set Up Backend Configuration**:
+   - Configure Azure Storage for remote state management.
+   - Use Key Vault for secrets.
+
+4. **Initialize Terraform**:
+   ```bash
+   terraform init
+   ```
+
+5. **Plan and Apply**:
+   - Customize `terraform.tfvars` for your environment.
+   - Run the following commands:
+     ```bash
+     terraform plan -var-file="terraform.tfvars"
+     terraform apply -var-file="terraform.tfvars"
+     ```
+
+6. **Verify Deployment**:
+   - Check Azure Portal for deployed resources.
+   - Validate policies, RBAC, and networking setup.
+
+## Contributing
+
+Contributions are welcome! Please follow the [contribution guidelines](CONTRIBUTING.md) when submitting changes.
+
 ## Project Structure
 
 - Use a modular architecture:
