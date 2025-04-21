@@ -148,7 +148,7 @@ Contributions are welcome! Please follow the [contribution guidelines](CONTRIBUT
 - `README.md` explaining setup steps, module usage, and configuration.
 - Example `terraform.tfvars` files for common scenarios.
 
-## Optional (Bonus)
+## Optional
 
 - Include blueprint for workload landing zones (e.g., App, Data, AI).
 - Add YAML input support for environment-driven provisioning.
