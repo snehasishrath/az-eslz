@@ -34,6 +34,66 @@ This project provides a Terraform-based implementation of an Azure enterprise-gr
    - Check Azure Portal for deployed resources.
    - Validate policies, RBAC, and networking setup.
 
+## Enhanced Documentation
+
+### Overview
+This project implements an Azure enterprise-grade landing zone aligned with the Microsoft Cloud Adoption Framework (CAF). It provides a modular, scalable, and environment-specific setup for managing multiple Azure subscriptions.
+
+### Project Structure
+- **`main.tf`**: Entry point for Terraform configuration, including backend setup and module integration.
+- **`variables.tf`**: Defines reusable variables for the project.
+- **`outputs.tf`**: Exposes key outputs from the modules.
+- **`environments/`**: Contains environment-specific variable files (`dev.tfvars`, `test.tfvars`, `prod.tfvars`).
+- **`modules/`**: Houses modular configurations for management, connectivity, and landing zones.
+  - **`management/`**: Sets up management groups, policies, and RBAC.
+  - **`connectivity/`**: Configures networking components like VNets and firewalls.
+  - **`landing_zones/`**: Manages subscriptions and workload-specific configurations.
+
+### Usage
+1. **Initialize Terraform**:
+   ```bash
+   terraform init
+   ```
+
+2. **Select Environment**:
+   Use the appropriate `.tfvars` file for your environment (e.g., `dev.tfvars`).
+
+3. **Plan and Apply**:
+   ```bash
+   terraform plan -var-file="environments/dev.tfvars"
+   terraform apply -var-file="environments/dev.tfvars"
+   ```
+
+4. **Verify Deployment**:
+   - Check the Azure Portal for deployed resources.
+   - Validate policies, RBAC, and networking setup.
+
+### Modules
+#### Management Module
+- **Purpose**: Sets up management group hierarchy, policies, and RBAC roles.
+- **Key Resources**:
+  - `azurerm_management_group`
+  - `azurerm_policy_assignment`
+
+#### Connectivity Module
+- **Purpose**: Configures networking components like hub-and-spoke topology and Azure Firewall.
+- **Key Resources**:
+  - `azurerm_virtual_network`
+  - `azurerm_subnet`
+  - `azurerm_firewall`
+
+#### Landing Zones Module
+- **Purpose**: Manages subscriptions and workload-specific configurations.
+- **Key Resources**:
+  - `azurerm_subscription`
+  - `azurerm_role_assignment`
+
+### Best Practices
+- **State Management**: Use remote state with Azure Storage for collaboration.
+- **Environment Separation**: Maintain separate `.tfvars` files for dev, test, and prod.
+- **Security**: Store sensitive information in Azure Key Vault.
+- **Compliance**: Align with CAF naming conventions and tagging strategy.
+
 ## Contributing
 
 Contributions are welcome! Please follow the [contribution guidelines](CONTRIBUTING.md) when submitting changes.
