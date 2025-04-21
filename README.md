@@ -94,6 +94,22 @@ This project implements an Azure enterprise-grade landing zone aligned with the 
 - **Security**: Store sensitive information in Azure Key Vault.
 - **Compliance**: Align with CAF naming conventions and tagging strategy.
 
+## Recent Updates
+
+### Automated Testing
+- **Checkov**: Added a GitHub Actions workflow (`tests/checkov.yml`) to automate static code analysis for Terraform configurations, ensuring security and compliance.
+- **Terratest**: Added a Go-based test file (`tests/terratest_test.go`) to validate Terraform configurations in the `examples/dev` directory.
+
+### Budget Alerts and Cost Management
+- Added budget alert resources to the `management`, `connectivity`, and `landing_zones` modules to monitor Azure spending and send notifications when budgets exceed 90% of the allocated amount.
+
+### Monitoring and Logging
+- Integrated Log Analytics Workspaces and Diagnostic Settings into the `management`, `connectivity`, and `landing_zones` modules for enhanced observability and compliance.
+
+### Contribution and Change Tracking
+- **CONTRIBUTING.md**: Added guidelines for contributing to the project.
+- **CHANGELOG.md**: Added a changelog to track all notable changes over time, adhering to the Keep a Changelog format and Semantic Versioning.
+
 ## Contributing
 
 Contributions are welcome! Please follow the [contribution guidelines](CONTRIBUTING.md) when submitting changes.
